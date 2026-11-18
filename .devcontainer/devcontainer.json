@@ -1,0 +1,32 @@
+{
+  "name": "Vetranio Live Test",
+  // Node 22: current Vitest, jsdom and @supabase/supabase-js no longer support Node 20.
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "postCreateCommand": "npm install && npm install -g @anthropic-ai/claude-code @openai/codex opencode-ai @google/gemini-cli",
+  "forwardPorts": [5173, 54321, 54323],
+  "portsAttributes": {
+    "5173": {
+      "label": "App",
+      "onAutoForward": "notify"
+    },
+    "54321": {
+      "label": "Supabase API"
+    },
+    "54323": {
+      "label": "Supabase Dashboard",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
+  }
+}
