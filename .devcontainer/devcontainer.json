@@ -1,9 +1,9 @@
 {
   "name": "Vetranio Live Test",
   // Node 22: current Vitest, jsdom and @supabase/supabase-js no longer support Node 20.
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { "moby": false }
   },
   "hostRequirements": {
     "cpus": 4,
